@@ -1,0 +1,12 @@
+projects:
+  - name: "demo-server-ui"
+    dockerFilePath: "."
+deployment:
+  templatePath: "deployment/template.sh"
+customer:
+  - "banking"
+  - "ecommerce"
+test:
+  testPath: "test/test.groovy"
+pr:
+  prPath: "test/test.groovy"
