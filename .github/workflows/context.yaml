@@ -3,9 +3,16 @@ name: Test Context
 on: push
 
 jobs:
-  contexttest:
+  checkout:
     runs-on: ubuntu-latest
 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [checkout]
     strategy:
       matrix:
         customer: [ecommerce, banking]
@@ -15,9 +22,7 @@ jobs:
       REPO: localhost
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
 
       - name: Matrix Values
         run: |
-          echo "$matrix.customer $matrix.environment $VERSION $REPO"
+          echo "${{ matrix.customer}} ${{ matrix.environment} $VERSION $REPO"
