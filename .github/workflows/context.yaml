@@ -20,4 +20,4 @@ jobs:
 
       - name: Matrix Values
         run: |
-          echo "${{ matrix.customer }} ${{ matrix.environment }} $VERSION $REPO"
+          echo "$matrix.customer $matrix.environment $VERSION $REPO"
